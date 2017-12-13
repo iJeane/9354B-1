@@ -1,7 +1,8 @@
- import java.util.Scanner;
-public class LazySecurityGuard {
-    public static void main(String[] args) {
+package com.codeforces;
+import java.util.Scanner;
 
+public class LazySecurityGuard{
+    public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
         double n = input.nextFloat();

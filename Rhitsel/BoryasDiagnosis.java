@@ -1,3 +1,4 @@
+package com.codeforces;
 import java.util.Scanner;
 
 public class Solution{
@@ -8,20 +9,24 @@ public class Solution{
 		int n = 0;
 			n = kbd.nextInt();
 
-	    int ans, b, appoint, siDay, diDay;
+	    int ans; 
+		int b; 
+		int appointment;
+		int	siDay; 
+		int diDay;
 	        ans = 0;
 
 	    for (int i = 1; i <= n; i++){
 
 	    	siDay = kbd.nextInt();
 	    	diDay = kbd.nextInt();
-	    	appoint = 0;
+	    	appointment = 0;
 	    	b = 0;
 
-	    	while(appoint < 1){
+	    	while(appointment < 1){
 	    		if(siDay + diDay * b > ans){
 	    			ans = siDay + diDay * b;
-	    			appoint++;
+	    			appointment++;
 	    		}else{
 	    			b++;
 	    		}
