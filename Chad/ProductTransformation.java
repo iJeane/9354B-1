@@ -1,11 +1,11 @@
 import java.util.*;
 import java.io.*;
 
-public class ProductTransformation {
+public class productuctTransformation {
 	
 	int c;
 
-	long prod(long a, long b, long c) {
+	long product(long a, long b, long c) {
 		long x = 1 % c;
 		while (b > 0) {
 			if ((b & 1) == 1) {
@@ -18,7 +18,7 @@ public class ProductTransformation {
 	}
 	
 	long inv(long a, long c) {
-		return prod(a, c - 2, c);
+		return product(a, c - 2, c);
 	}
 	
 	void solve() {
@@ -45,7 +45,7 @@ public class ProductTransformation {
 			choose[i] %= c;
 		}
 		for (int i = n - 1; i >= 0; i--) {
-			out.print(prod(a, choose[i], q) + " ");
+			out.print(product(a, choose[i], q) + " ");
 		}
 		out.println();
 	}

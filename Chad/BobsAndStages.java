@@ -1,13 +1,15 @@
 import java.util.*;
 import java.io.*;
 
-public class BobsAndStages {
+public class BobsAndStages{
 
-	class Bubble {
-		int x, y;
-		int id1, id2;
+	class Bobby{
+		int x
+		int y;
+		int id1
+		int id2;
 
-		public Bubble(int x, int y) {
+		public Bobby(int x, int y){
 			this.x = x;
 			this.y = y;
 		}
@@ -23,24 +25,24 @@ public class BobsAndStages {
 		}
 		@Override
 		public String toString() {
-			return "Bubble [x=" + x + ", y=" + y + ", id1=" + id1 + ", id2=" + id2 + "]";
+			return "Bobby [x=" + x + ", y=" + y + ", id1=" + id1 + ", id2=" + id2 + "]";
 		}
 	}
 
-	long vectMul(Bubble a, Bubble b) {
+	long vectMul(Bobby a, Bobby b) {
 		return 1L * a.x * b.y - 1L * a.y * b.x;
 	}
 
-	long vectMul(Bubble a, Bubble b, Bubble c) {
+	long vectMul(Bobby a, Bobby b, Bobby c) {
 		return 1L * (b.x - a.x) * (c.y - a.y) - 1L * (b.y - a.y) * (c.x - a.x);
 	}
 
 	void solve() {
 		int n = in.nextInt();
 		int k = in.nextInt();
-		Bubble[] a = new Bubble[n];
+		Bobby[] a = new Bobby[n];
 		for (int i = 0; i < n; i++) {
-			a[i] = new Bubble(in.nextInt(), in.nextInt());
+			a[i] = new Bobby(in.nextInt(), in.nextInt());
 		}
 		Arrays.sort(a, (p1, p2) -> {
 			if (p1.x != p2.x) {
@@ -53,15 +55,15 @@ public class BobsAndStages {
 		long[][] dp = new long[n][k + 1];
 		long[][] cost = new long[n][n];
 		long INF = Long.MIN_VALUE / 3;
-		Bubble[] buf = new Bubble[n];
+		Bobby[] buf = new Bobby[n];
 		for (int i = 0; i < buf.length; i++) {
-			buf[i] = new Bubble(0, 0);
+			buf[i] = new Bobby(0, 0);
 		}
-		Bubble[] vecs = new Bubble[n * (n - 1)];
+		Bobby[] vecs = new Bobby[n * (n - 1)];
 		for (int i = 0, tmp = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (i != j) {
-					vecs[tmp] = new Bubble(a[j].x - a[i].x, a[j].y - a[i].y);
+					vecs[tmp] = new Bobby(a[j].x - a[i].x, a[j].y - a[i].y);
 					vecs[tmp].id1 = i;
 					vecs[tmp].id2 = j;
 					tmp++;
@@ -117,7 +119,7 @@ public class BobsAndStages {
 				cost[start][buf[i].id1] = cost[buf[i].id1][start] = 0;
 			}
 
-			for (Bubble vec : vecs) {
+			for (Bobby vec : vecs) {
 				int p1 = vec.id1, p2 = vec.id2;
 				long cst = cost[p1][p2];
 				if (cst != INF) {

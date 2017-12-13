@@ -3,17 +3,17 @@ import java.io.*;
 
 public class Property {
 
-	class Pair implements Comparable<Pair> {
+	class Set implements Comparable<Set> {
 		int a, b;
 
-		public Pair(int a, int b) {
+		public Set(int a, int b) {
 			super();
 			this.a = a;
 			this.b = b;
 		}
 		
 		@Override
-		public int compareTo(Pair o) {
+		public int compareTo(Set o) {
 			return Integer.compare(a, o.a);
 		}
 	}
@@ -26,9 +26,9 @@ public class Property {
 		}
 		a[n] = a[0];
 		
-		Pair[] b = new Pair[n];
+		Set[] b = new Set[n];
 		for (int i = 0; i < n; i++) {
-			b[i] = new Pair(n - a[i] - a[i + 1], i);
+			b[i] = new Set(n - a[i] - a[i + 1], i);
 		}
 		Arrays.sort(b);
 		int[] ans = new int[n];
