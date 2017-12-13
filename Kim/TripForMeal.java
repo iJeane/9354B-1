@@ -1,38 +1,24 @@
-
-/**
- * This program displays an
- * output with one number — minimum distance in meters Winnie must go through to have a meal n times.
- *
- * @author Kim Willy
- * @version 8.0
- * @since 2017-11-29
- */
-
-
+package com.codeforces;
 import java.util.Scanner;
 
 public class TripForMeal {
-     public static void main(String[] args) {
-          Scanner sc   = new Scanner(System.in);
-          int     num  = sc.nextInt();
-          int     a    = sc.nextInt();
-          int     b    = sc.nextInt();
-          int     c    = sc.nextInt();
-
-          int     dist = 0;
+    public static void main(String[] args) {
+        Scanner input   = new Scanner(System.in);
+        int     num  = input.nextInt();
+        int     distanceA    = input.nextInt();
+        int     distanceB    = input.nextInt();
+        int     distanceC    = input.nextInt();
+        int     distance = 0;
 
           num--;
 
-          if (num-- > 0) {
-               dist += Math.min(a, b);
+          if(num-- > 0){
+               distance += Math.min(distanceA, distanceB);
           }
-
-          if (dist > 0) {
-               dist += num * Math.min(Math.min(a, b), c);
+          if(distance > 0){
+               distance += num * Math.min(Math.min(distanceA, distanceB), distanceC);
           }
-
-          System.out.println(dist);
-
+          System.out.println(distance);
      }
 }
 

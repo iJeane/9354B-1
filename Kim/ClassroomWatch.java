@@ -1,24 +1,17 @@
-
-/**
- * This is a program which will search for arbitrary values of the number n for all suitable values of x or determine that such x does not exist.
- *
- * @author Kim Willy
- * @version 8.0
- * @since 2017-11-29
- */
+package com.codeforces;
 
 import java.util.Scanner;
 
 public class ClassroomWatch{
 	public static void main(String[] args) {
-		Scanner kbd = new Scanner(System.in);
-		int n = kbd.nextInt();
-		int k = 0;
+		Scanner input = new Scanner(System.in);
+		int inputA = input.nextInt();
+		int number = 0;
 		int[] array = new int[90];
-		int k1 = k;
+		int number1 = number;
 		for(int i = 1; i <= 81; i++) {
 
-			int x = n - i;
+			int x = inputA - i;
 			int sum = 0;
 
 			while(x > 0) {
@@ -29,15 +22,15 @@ public class ClassroomWatch{
 
 			if(sum == i) {
 
-				array[k1++] = n - i;
+				array[number1++] = inputA - i;
 			}
 		}
 
-		k = k1;
+		number = number1;
 
-		System.out.println(k);
+		System.out.println(number);
 
-		for(int i = k - 1; i >= 0; i--) {
+		for(int i = number - 1; i >= 0; i--) {
 
 			System.out.println(array[i]);
 		}
