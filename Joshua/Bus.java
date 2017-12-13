@@ -1,40 +1,41 @@
-import java.util.Scanner;
+package com.codeforces;
+import java.util.*;
 public class Bus {
-	public static void main(String[] args) {
+	public static void Main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int a = input.nextInt();
-		int b = input.nextInt();
-		int f = input.nextInt();
-		int k = input.nextInt();
-		int s = b;
-		s = s-f;
-		f = a-f;
-		int ans=0;
-		for(int i=1; i<k;i++){
-			if(s<0){
+		int targetPoint = input.nextInt();
+		int litersGas = input.nextInt();
+		int gasStation = input.nextInt();
+		int numberOfJourneys = input.nextInt();
+		int startingPoint = litersGas;
+		startingPoint = startingPoint - gasStation;
+		gasStation = targetPoint - gasStation;
+		int answer = 0;
+		for(int i = 1; i < numberOfJourneys; i++){
+			if(startingPoint < 0){
 				System.out.println("-1");
 				return;
 			}
-			if(2*f>s){
-				s=b;
-				ans++;
+			if(2 * gasStation > startingPoint){
+				startingPoint = litersGas;
+				answer++;
 			}
-			s-=2*f;
-			f = a-f;
+			startingPoint -= 2*gasStation;
+			gasStation = targetPoint-gasStation;
 		}
-		if(s<0){
+		if(startingPoint < 0){
 			System.out.println("-1");
 			return;
 		}
 		
-		if(f>s){
-			s=b;
-			ans++;
+		if(gasStation > startingPoint){
+			startingPoint=litersGas;
+			answer++;
 		}
-		s-=f;
-		if(s<0){
-			ans=-1;
+		startingPoint -= gasStation;
+		if(startingPoint < 0){
+			answer =- 1;
 		}
-		System.out.println(ans);
+		System.out.println(answer);
 	}
 }

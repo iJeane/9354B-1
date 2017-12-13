@@ -1,5 +1,6 @@
-import java.util.Scanner;
-public class SearchForPrettyIntegers {
+package com.codeforces;
+import java.util.*;
+public class PrettyIntegers {
 	public static void main(String[] args) {
 		Scanner kbd = new Scanner(System.in);
 		
