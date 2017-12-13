@@ -1,19 +1,20 @@
+package com.codeforces;
 import java.util.*;
-	public class MaximBuysAnApartment {   
-		public static void main(String[] args) {
+	public class MaximBuysAnApartment{   
+		public static void main(String[] args){
 		    Scanner sc = new Scanner(System.in);
-		    int n = sc.nextInt(); 
-		    int k = sc.nextInt();
+		    int numOfApartment = sc.nextInt(); 
+		    int inhabited = sc.nextInt();
 		    int min;
 		    int max;
 		    
-		    if ((n == 0 || k == 0) || n == k ) {
+		    if((numOfApartment == 0 || inhabited == 0) || numOfApartment == inhabited ){
 		        System.out.print(0+ " " + 0);
 		        return;
 		    }
-		    if ((n-k)/k >=2) {
-		    	max = k*2;
-		    }else max = (n-k);
-		    	System.out.print(Math.min(n-k, 1)+" "+ max);
+		    if((numOfApartment-inhabited)/inhabited >= 2){
+		    	max = inhabited*2;
+		    }else max = (numOfApartment-inhabited);
+		    	System.out.print(Math.min(numOfApartment-inhabited, 1)+" "+ max);
 		}
 	}

@@ -1,24 +1,24 @@
+package com.codeforces;
 import java.util.Scanner;
-public class TableTennis{
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		long j = sc.nextInt();
-		int b = sc.nextInt();
-		long k = 0;
+	public static void main(String[] args){
+		Scanner scan= new Scanner(System.in);
+		int people = scan.nextInt();
+		long wins = scan.nextInt();
+		int power1 = scan.nextInt();
+		long power2 = 0;
 		
-		for(int x = 1; x < a; x++) {
-			int c = sc.nextInt();
-			if (c>b) {
-				k =1;
-				b = c;
-			}else {
-				k++;
+		for(int x = 1; x < people; x++){
+			int c = scan.nextInt();
+			if(c > power1){
+				power2 =1;
+				power1 = c;
+			}else{
+				power2++;
 			}
-			if (k >= j) {
+			if (power2 >= wins){
 				break;
 			}
 		}
-		System.out.print(b);
+		System.out.print(power1);
 	}
 }
