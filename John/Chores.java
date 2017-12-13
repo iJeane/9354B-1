@@ -2,20 +2,20 @@ package com.codeforces;
 
 import java.util.Scanner;
 
-public class Chores {
+public class Chores{
 
-    public static void main(String[] args) {
+    public static void Main(String[] args){
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int x = sc.nextInt();
+        int numOfChores = sc.nextInt();
+        int maxNumOfChores = sc.nextInt();
+        int unitOfTime = sc.nextInt();
         int total = 0;
 
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < numOfChores; i++){
 
-            if(i >= n - k) {
-                total += x;
-            } else {
+            if(i >= numOfChores - maxNumOfChores){
+                total += unitOfTime;
+            }else{
                 total += sc.nextInt();
             }
 

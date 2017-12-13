@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FairGame {
 
-    public static void main(String[] args) {
+    public static void Main(String[] args){
         Scanner input = new Scanner(System.in);
         int petya = 0;
         int vasya = 0;
@@ -13,16 +13,16 @@ public class FairGame {
         int numOfCards = input.nextInt();
         ArrayList<Integer> cards = new ArrayList<>();
 
-        for(int i = 0; i < numOfCards; i++) {
+        for(int i = 0; i < numOfCards; i++){
             cards.add(input.nextInt());
         }
 
-        for(int i = 0; i < cards.size(); i++) {
-            for(int j = i + 1; j < cards.size(); j++) {
-                if(cards.get(i) == cards.get(j)) {
-                    if(turn) {
+        for(int i = 0; i < cards.size(); i++){
+            for(int j = i + 1; j < cards.size(); j++){
+                if(cards.get(i) == cards.get(j)){
+                    if(turn){
                         petya++;
-                    } else {
+                    }else{
                         vasya++;
                     }
                     cards.remove(j);
@@ -36,17 +36,17 @@ public class FairGame {
           (cards.contains(1) &&
            cards.contains(2) &&
            cards.contains(3) &&
-           cards.contains(4))) {
+           cards.contains(4))){
             System.out.println("NO");
-        } else {
+        }else{
 
-            if(petya == vasya) {
+            if(petya == vasya){
                 System.out.println("YES");
 
-                for(int temp : cards) {
+                for(int temp : cards){
                     System.out.print(temp + " ");
                 }
-            } else {
+            }else{
                 System.out.println("NO");
             }
 
