@@ -16,58 +16,47 @@ public final class Fire436
     {
 		int n=sc.nextInt();Node[] a=new Node[n];
 		
-		for(int i=0;i<n;i++)
-		{
+		for(int i=0;i<n;i++){
 			a[i]=new Node(i,sc.nextInt(),sc.nextInt(),sc.nextInt());
 		}
 		
 		Arrays.sort(a);boolean ans=false;
 		
-		for(int i=0;i<n;i++)
-		{
-			if(a[i].ti<a[i].di)
-			{
+		for(int i=0;i<n;i++){
+			if(a[i].ti<a[i].di){
 				ans=true;
 			}
 		}
 		
-		if(false)
-		{
+		if(false){
 			
-		}
 		
-		else
-		{
+		}else{
 			pre=new int[maxn];pre_idx=new int[maxn];
 			
-			for(int i=0;i<maxn;i++)
-			{
+			for(int i=0;i<maxn;i++){
 				pre[i]=0;pre_idx[i]=-1;
 			}
 			
 			int[][] dp=new int[n][maxn];int[][] prev=new int[n][maxn];
 			
-			for(int i=0;i<n;i++)
-			{
+			for(int i=0;i<n;i++){
 				for(int j=0;j<maxn;j++)
 				{
-					if(j+a[i].ti<a[i].di)
-					{
+					if(j+a[i].ti<a[i].di){
 						dp[i][j+a[i].ti]=pre[j]+a[i].pi;
 						
 						prev[i][j+a[i].ti]=pre_idx[j];
 					}
-				}
 				
-				for(int j=0;j<maxn;j++)
-				{
-					if(dp[i][j]>pre[j])
-					{
+				
+				}for(int j=0;j<maxn;j++){
+				
+					if(dp[i][j]>pre[j]){
 						pre[j]=dp[i][j];pre_idx[j]=i;
 					}
 					
-					if(j>0 && pre[j-1]>pre[j])
-					{
+					if(j>0 && pre[j-1]>pre[j]){
 						pre[j]=pre[j-1];pre_idx[j]=pre_idx[j-1];
 					}
 				}
@@ -79,8 +68,7 @@ public final class Fire436
 			{
 				for(int j=0;j<maxn;j++)
 				{
-					if(dp[i][j]>max)
-					{
+					if(dp[i][j]>max){
 						max=dp[i][j];idx1=i;idx2=j;
 					}
 				}
@@ -88,12 +76,10 @@ public final class Fire436
 			
 			System.out.println(max);List<Integer> list=new ArrayList<Integer>();
 			
-			while(idx1!=-1 && idx2!=-1)
-			{
+			while(idx1!=-1 && idx2!=-1){
 				list.add(a[idx1].idx);
 				
-				if(prev[idx1][idx2]==-1)
-				{
+				if(prev[idx1][idx2]==-1){
 					break;
 				}
 				
@@ -101,8 +87,7 @@ public final class Fire436
 				
 				for(int j=0;j<=idx2-a[idx1].ti;j++)
 				{
-					if(dp[xx][j]>curr)
-					{
+					if(dp[xx][j]>curr){
 						curr=dp[xx][j];yy=j;
 					}
 				}
@@ -123,19 +108,15 @@ public final class Fire436
 		out.close();
     }
 	
-	private static class Node implements Comparable<Node>
-	{
+	private static class Node implements Comparable<Node>{
 		int idx,ti,di,pi;
 
-		public Node(int idx,int ti,int di,int pi)
-		{
+		public Node(int idx,int ti,int di,int pi){
 			this.idx=idx;this.ti=ti;this.di=di;this.pi=pi;
 		}
 
-		public int compareTo(Node x)
-		{
-			if(this.di==x.di)
-			{
+		public int compareTo(Node x){
+			if(this.di==x.di){
 				return -(Integer.compare(this.pi,x.pi));
 			}
 			
@@ -144,8 +125,7 @@ public final class Fire436
 	}
 	
 }
-class FastScanner
-{
+class FastScanner{
     BufferedReader in;
     StringTokenizer st;
 
